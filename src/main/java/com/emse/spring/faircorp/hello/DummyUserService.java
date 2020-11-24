@@ -1,7 +1,6 @@
 package com.emse.spring.faircorp.hello;
 
 import org.springframework.stereotype.Service;
-
 import java.util.Arrays;
 import java.util.List;
 

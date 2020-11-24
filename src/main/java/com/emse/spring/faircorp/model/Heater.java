@@ -4,6 +4,7 @@ import javax.persistence.*;
 
 @Entity
 public class Heater {
+
     @Id
     @GeneratedValue
     private Long id;
@@ -16,23 +17,23 @@ public class Heater {
     @ManyToOne(optional = false)
     private Room room;
 
-    @Column(nullable=false)
-    private Long room_id;
-
 
     @Column(nullable=false)
-    @Enumerated(EnumType.STRING)
+    @Enumerated(value = EnumType.STRING)
     private HeaterStatus heaterStatus;
 
 
     public Heater() {
     }
 
-    public Heater(Long id, String name, Room room, HeaterStatus heaterStatus) {
+    public Heater(Long id, String name, Long power, Room room, HeaterStatus heaterStatus) {
         this.id = id;
         this.name = name;
+        this.power = power;
         this.room = room;
         this.heaterStatus= heaterStatus;
+
+
     }
 
     public Long getId() {
@@ -61,6 +62,10 @@ public class Heater {
 
     public void setPower(Long power) {
         this.power = power;
+    }
+
+    public Long getPower() {
+        return power;
     }
 
     public void setRoom(Room room) {

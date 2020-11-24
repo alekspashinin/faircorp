@@ -61,11 +61,11 @@ public class Room {
         return targetTemperature;
     }
 
-    public Set<Heater> getHeaterR() {
+    public Set<Heater> getHeaters() {
         return heaters;
     }
 
-    public Set<Window> getWindowR() {
+    public Set<Window> getWindows() {
         return windows;
     }
 
