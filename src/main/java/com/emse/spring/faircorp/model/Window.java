@@ -2,7 +2,6 @@ package com.emse.spring.faircorp.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "RWINDOW")
 public class Window {
     @Id
     @GeneratedValue
@@ -11,15 +10,22 @@ public class Window {
     @Column(nullable=false)
     private String name;
 
+
     @Column(nullable=false)
     @Enumerated(EnumType.STRING)
     private WindowStatus windowStatus;
 
+
+    @ManyToOne(optional = false)
+    private Room room;
+
     public Window() {
     }
 
-    public Window(String name, WindowStatus status) {
+    public Window(Long id,String name, Room room, WindowStatus status) {
+        this.id = id;
         this.windowStatus = status;
+        this.room = room;
         this.name = name;
     }
 
@@ -37,6 +43,14 @@ public class Window {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Room getRoom() {
+        return room;
+    }
+
+    public void setRoom(Room room) {
+        this.room = room;
     }
 
     public WindowStatus getWindowStatus() {
